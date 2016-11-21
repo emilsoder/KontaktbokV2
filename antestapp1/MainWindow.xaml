@@ -1,12 +1,39 @@
-﻿<Window x:Class="antestapp1.MainWindow"
+﻿<Window
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:antestapp1"
+        xmlns:View_Layer="clr-namespace:antestapp1.View_Layer" x:Class="antestapp1.MainWindow"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
-    <Grid>
+        Title="Kontaktbok" Height="606" Width="445.17">
+
+    <Window.Resources>
+        <Storyboard x:Key="showAddView" >
+            <ThicknessAnimation Storyboard.TargetProperty="Margin" From="0,-350,0,600" To="0,0,0,0" DecelerationRatio=".9" Duration="0:0:1" />
+        </Storyboard>
+        <Storyboard x:Key="hideAddView">
+            <ThicknessAnimation Storyboard.TargetProperty="Margin" From="0,0,0,0" To="0,-350,0,1500" AccelerationRatio=".9" Duration="0:0:1" />
+        </Storyboard>
+
+        <Storyboard x:Key="showDetailsView" >
+            <ThicknessAnimation Storyboard.TargetProperty="Margin" From="0,-350,10,600" To="0,0,0,0" DecelerationRatio=".9" Duration="0:0:1" />
+        </Storyboard>
+    </Window.Resources>
+
+    <Grid Margin="0,0,0,-2">
+        <Grid.ColumnDefinitions>
+            
+            <ColumnDefinition Width="137"/> 
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>        
+        <View_Layer:ucListView x:Name="_ucListView" Width="Auto" Height="Auto"/>
+
         
+        <View_Layer:ucDetailsView x:Name="_ucDetailsView" Grid.Column="1" Margin="894,-409,-884,369" Height="Auto" Width="Auto"/>
+
+        <local:ucAddView x:Name="_ucAddView" Grid.Column="1" Margin="518,-409,-475,278" Height="Auto" Width="Auto"/>
+        
+
     </Grid>
 </Window>

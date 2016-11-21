@@ -35,8 +35,19 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -55,6 +66,21 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Data Layer\ContactBookDBDModel.cs" />
+    <Compile Include="Data Layer\Contacts.cs" />
+    <Compile Include="Model Layer\Model.cs" />
+    <Compile Include="SelectionManager.cs" />
+    <Compile Include="View Layer\ucAddView.xaml.cs">
+      <DependentUpon>ucAddView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View Layer\ucDetailsView.xaml.cs">
+      <DependentUpon>ucDetailsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View Layer\ucListView.xaml.cs">
+      <DependentUpon>ucListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModel Layer\IViewModel.cs" />
+    <Compile Include="ViewModel Layer\ViewModel.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -67,6 +93,18 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="View Layer\ucAddView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View Layer\ucDetailsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View Layer\ucListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -86,6 +124,7 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -95,6 +134,29 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Media\Gray_Thin_Accept.png" />
+    <Resource Include="Media\Gray_Thin_Close.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Media\48_EditContact_B.png" />
+    <Resource Include="Media\48_Thin_Accept_Blue.png" />
+    <Resource Include="Media\48_Thin_Close_B.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Media\Black_Thin_Accept.png" />
+    <Resource Include="Media\Black_Thin_Close.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Media\Contact Edit-WF.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Media\Search-WF.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Media\Contact Add-WF.png" />
+  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

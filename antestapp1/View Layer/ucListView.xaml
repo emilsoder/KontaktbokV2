@@ -1,0 +1,48 @@
+﻿<UserControl x:Class="antestapp1.View_Layer.ucListView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:antestapp1.View_Layer"
+             mc:Ignorable="d" Width="150" Height="360">
+
+    <Grid>
+        <Grid.Background>
+            <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.ControlLightColorKey}}"/>
+        </Grid.Background>
+
+        <Label Content="Kontakter" HorizontalAlignment="Left" VerticalAlignment="Top" Width="94" FontSize="20" Height="34"/>
+
+        <ListBox x:Name="lbContacts" HorizontalContentAlignment="Stretch" Margin="0,75,0,0">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal" MouseLeftButtonUp="GotoDetails">
+                        <TextBlock Width="140">
+                            <TextBlock.Text>
+                                <MultiBinding StringFormat="{}{0} {1}">
+                                    <Binding Path="FirstName"/>
+                                    <Binding Path="LastName"/>
+                                </MultiBinding>
+                            </TextBlock.Text>
+                        </TextBlock>
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+
+        <Rectangle Fill="#FFF4F4F5" Height="18" VerticalAlignment="Top" Margin="5,46,5,0"/>
+        <TextBox x:Name="txtSearch" TextWrapping="Wrap" Margin="5,46,5,0" TextChanged="txtSearch_TextChanged" RenderTransformOrigin="0.5,0.5" Height="18" VerticalAlignment="Top">
+            <TextBox.Background>
+                <ImageBrush ImageSource="/antestapp1;component/Media/Search-WF.png" Stretch="Uniform" AlignmentX="Right"/>
+            </TextBox.Background>
+        </TextBox>
+
+        <Button x:Name="btnAddContact" Content="Show" BorderBrush="{x:Null}" ToolTip="Ny kontakt" Style="{StaticResource MyButton}" Click="btnAddContact_Click" Foreground="#00000000" Height="28" VerticalAlignment="Top" HorizontalAlignment="Right" Width="30" Margin="0,6,5,0">
+            <Button.Background>
+                <ImageBrush Stretch="Uniform" ImageSource="/antestapp1;component/Media/Contact Add-WF.png"/>
+            </Button.Background>
+        </Button>
+
+
+    </Grid>
+</UserControl>
